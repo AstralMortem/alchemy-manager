@@ -1,0 +1,26 @@
+[project]
+name = "alchemy_manager"
+version = "0.0.1"
+description = "Simple library which add django-like objects manager and queryset to sqlalchemy model"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "sqlalchemy>=2.0.45",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.10",
+]
+test = [
+    "aiosqlite>=0.22.0",
+    "pytest>=9.0.2",
+    "pytest-asyncio>=1.3.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
