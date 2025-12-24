@@ -3,7 +3,7 @@ name = "alchemy_manager"
 version = "0.0.1"
 description = "Simple library which add django-like objects manager and queryset to sqlalchemy model"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 dependencies = [
     "sqlalchemy>=2.0.45",
 ]
