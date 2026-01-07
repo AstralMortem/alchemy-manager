@@ -17,6 +17,12 @@ class Manager(Generic[ModelT]):
         if not obj:
             raise LookupError("Object does not exist")
         return obj
+    
+    def get_or_none(self, **kw) -> ModelT | None:
+        return self.filter(**kw).first()
+    
+    def all(self) -> list[ModelT]:
+        return self.filter().all()
 
     def create(self, **kw) -> ModelT:
         with sync_session_scope() as session:
@@ -37,6 +43,12 @@ class Manager(Generic[ModelT]):
         if not obj:
             raise LookupError("Object does not exist")
         return obj
+    
+    async def aget_or_none(self, **kw) -> ModelT | None:
+        return await self.filter(**kw).afirst()
+    
+    async def aall(self) -> list[ModelT]:
+        return await self.filter().aall()
 
     async def acreate(self, **kw) -> ModelT:
         async with async_session_scope() as session:
