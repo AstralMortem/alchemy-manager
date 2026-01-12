@@ -3,7 +3,6 @@ from sqlalchemy import and_, or_, not_
 from .lookups import LOOKUPS
 
 
-
 class Q:
     def __init__(self, **kwargs):
         self.children = []
