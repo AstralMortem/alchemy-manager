@@ -22,7 +22,7 @@ def sync_session_scope(auto_commit: bool = False):
     global _sync_session_factory_engine
     engine = get_sync_engine()
     if engine is None:
-        raise RuntimeError("Asynchronous engine is not initialized.")
+        raise RuntimeError("Synchronous engine is not initialized.")
     if session_factory is None or _sync_session_factory_engine is not engine:
         session_factory = sessionmaker(bind=engine, expire_on_commit=False)
         _sync_session_factory_engine = engine
@@ -46,7 +46,7 @@ async def async_session_scope(auto_commit: bool = False):
     global _async_session_factory_engine
     engine = get_async_engine()
     if engine is None:
-        raise RuntimeError("Synchronous engine is not initialized.")
+        raise RuntimeError("Asynchronous engine is not initialized.")
     if async_session_factory is None or _async_session_factory_engine is not engine:
         async_session_factory = async_sessionmaker(bind=engine, expire_on_commit=False)
         _async_session_factory_engine = engine
